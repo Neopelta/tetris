@@ -25,7 +25,7 @@ If you don't have an OCAML compatible compiler, I suggest you to use **emacs** (
 3. Compile the program with the following manipulation : ctrl + c, ctrl + b and Enter
 
 
-## The orders (AZERTY)
+## The controls (AZERTY)
 
 - Right : Q
 - Left: D
