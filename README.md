@@ -19,7 +19,7 @@ We were asked to work in groups and to create a software using our knowledge acq
 
 To launch the Tetris game, you just have to use a compiler compatible with OCAML.
 
-If you don't have an OCAML compatible compiler, I suggest you to use **emacs** (provided in the project folder) : 
+If you don't have an OCAML compatible compiler, I suggest you to use **emacs**<sup>1</sup> (provided in the project folder) : 
 1. Open emacs via the root "star_emacs.Ink" or directly ".\emacs\start_emacs.bat"
 2. In the "file" menu, click on "Open File...", then select the "game_tetris.ml" file
 3. Compile the program with the following manipulation : ctrl + c, ctrl + b and Enter
@@ -38,3 +38,6 @@ Go to the "move" function and change only the corresponding letters.
 
 ### To change the background color ? 
 Go to the function "init_param" and modify the attribute background_color
+
+</br>
+<sup>1</sup> Official site (emacs) : https://www.gnu.org/software/emacs/
