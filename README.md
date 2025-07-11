@@ -3,6 +3,23 @@ TETRIS game - Student project
 
 This project was realized within the framework of the teaching unit Complementary programming proposed to the students of 1st year of Licence Informatique at the Faculty of Sciences of the University of Poitiers.
 
+## Table of Contents
+
+- [Tetris Project](#tetris-project)
+  - [Table of Contents](#table-of-contents)
+  - [Information](#information)
+  - [Presentation of the project](#presentation-of-the-project)
+  - [Screenshots](#screenshots)
+  - [Updates](#updates)
+    - [Game Over Screen Implementation (11/07/2025)](#game-over-screen-implementation-11072025)
+      - [Fixed Issues](#fixed-issues)
+    - [Complete Tetris Shapes Implementation (09/03/2024)](#complete-tetris-shapes-implementation-09032024)
+      - [Fixed Issues](#fixed-issues-1)
+  - [How to play?](#how-to-play)
+  - [The controls (AZERTY)](#the-controls-azerty)
+    - [To change the keys ?](#to-change-the-keys-)
+    - [To change the background color ?](#to-change-the-background-color-)
+
 ## Information
 
 - LANGUAGE : OCAML
@@ -17,8 +34,6 @@ We were asked to work in groups and to create a software using our knowledge acq
 
 ## Screenshots
 
-## Screenshots
-
 **Gameplay** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Game Over Screen**
 
 <img src="images/gameplay.png" alt="Tetris Gameplay" width="200"> &nbsp;&nbsp; <img src="images/gameover.png" alt="Game Over Screen" width="200">
@@ -29,7 +44,7 @@ We were asked to work in groups and to create a software using our knowledge acq
 - **When the player has lost**: Red "GAME OVER" text with yellow score display
 - **Simple exit method**: Close the graphics window to exit the game
 
-### Fixed Issues
+#### Fixed Issues
 - Type error resolved in a getter function
 
 ### Complete Tetris Shapes Implementation (09/03/2024)
@@ -42,6 +57,12 @@ The game now includes all 7 standard Tetris pieces with proper rotations:
 - **Z-piece**: Z-shaped piece (2 rotations) *new*
 - **J-piece**: J-shaped piece (4 rotations) *new*
 - **L-piece**: L-shaped piece (4 rotations) *new*
+
+#### Fixed Issues
+- Corrected rotation mechanics for all pieces
+- Fixed shape transformations during rotations
+- Added proper rotation cycles
+- Resolved type errors in getter functions
 
 ## How to play?
 
