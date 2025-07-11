@@ -3,6 +3,19 @@
 (*       | |__ | | \_|___)      *)
 
 
+(* Compile the program with the following manipulation :
+     ctrl + c, ctrl + b and Enter  
+
+The controls (AZERTY)
+Right : Q
+Left: D
+Right rotation : Z
+Left rotation : S
+As low as possible: A
+
+*)
+
+
 (* -------------------------------------- *)
 (* -------------------------------------- *)
 (*            Utility functions           *)
@@ -333,9 +346,9 @@ let getshape(p : t_shape) t_point list = p.shape ;;
 let getx_len(p : t_shape) int = p.x_len ;;
 let gety_len(p : t_shape) int = p.y_len ;;
 let getrot_rgt_base(p : t_shape) t_point = p.rot_rgt_base ;;
-let getrot_rgt_shape(p : t_shape) int = p.rot_rgt_base ;;
+let getrot_rgt_shape(p : t_shape) : int = p.rot_rgt_base ;;
 let getrot_lft_base(p : t_shape) t_point = p.rot_lft_base ;;
-let getrot_lft_shape(p : t_shape) t_point = p.rot_lft_shape ;;
+let getrot_lft_shape(p : t_shape) : int = p.rot_lft_shape ;;
 
 (* type t_cur_shape  *)
 
@@ -399,9 +412,157 @@ let init_sh211() : t_shape =
   rot_lft_base = {x = 0 ;  y = 0} ; rot_lft_shape = 2} 
 ;;
 
+(* Forme T - état 0 (base) : forme en T inversé *)
+let init_sh300() : t_shape = 
+  {shape = [{x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 4 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 6} 
+;;
+
+(* Forme T - état 1 (rotation droite) *)
+let init_sh301() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 0 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 5 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 3} 
+;;
+
+(* Forme T - état 2 (180°) *)
+let init_sh302() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 1 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 6 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 4} 
+;;
+
+(* Forme T - état 3 (rotation gauche) *)
+let init_sh303() : t_shape = 
+  {shape = [{x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 1 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 3 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 5} 
+;;
+
+(* Forme S - état 0 (horizontal) *)
+let init_sh400() : t_shape = 
+  {shape = [{x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 8 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 8} 
+;;
+
+(* Forme S - état 1 (vertical) *)
+let init_sh401() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 1 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 7 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 7} 
+;;
+
+(* Forme Z - état 0 (horizontal) *)
+let init_sh500() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 10 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 10} 
+;;
+
+(* Forme Z - état 1 (vertical) *)
+let init_sh501() : t_shape = 
+  {shape = [{x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 0 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 9 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 9} 
+;;
+
+(* Forme J - état 0 (base) *)
+let init_sh600() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 12 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 14} 
+;;
+
+(* Forme J - état 1 (rotation droite) *)
+let init_sh601() : t_shape = 
+  {shape = [{x = 1 ; y = 0} ; {x = 1 ; y = -1} ; {x = 0 ; y = -2} ; {x = 1 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 13 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 11} 
+;;
+
+(* Forme J - état 2 (180°) *)
+let init_sh602() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 2 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 14 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 12} 
+;;
+
+(* Forme J - état 3 (rotation gauche) *)
+let init_sh603() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 0 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 11 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 13} 
+;;
+
+(* Forme L - état 0 (base) *)
+let init_sh700() : t_shape = 
+  {shape = [{x = 2 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 16 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 18} 
+;;
+
+(* Forme L - état 1 (rotation droite) *)
+let init_sh701() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 1 ; y = -1} ; {x = 1 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 17 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 15} 
+;;
+
+(* Forme L - état 2 (180°) *)
+let init_sh702() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 0 ; y = -1}] ; 
+  x_len = 3 ; y_len = 2 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 18 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 16} 
+;;
+
+(* Forme L - état 3 (rotation gauche) *)
+let init_sh703() : t_shape = 
+  {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 0 ; y = -2} ; {x = 1 ; y = -2}] ; 
+  x_len = 2 ; y_len = 3 ; 
+  rot_rgt_base = {x = 0 ; y = 0} ; rot_rgt_shape = 15 ; 
+  rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 17} 
+;;
+
 (* Call of the forms *)
 let init_shapes() : t_shape t_array = 
-  {len = 3 ; value = [| init_sh011() ; init_sh112() ; init_sh211() |]} 
+  {len = 18 ; value = [| 
+    init_sh011() ; (* 0 - Barre horizontale *)
+    init_sh112() ; (* 1 - Barre verticale *)
+    init_sh211() ; (* 2 - Carre *)
+    init_sh300() ; (* 3 - T base *)
+    init_sh301() ; (* 4 - T droite *)
+    init_sh302() ; (* 5 - T 180 deg *)
+    init_sh303() ; (* 6 - T gauche *)
+    init_sh400() ; (* 7 - S horizontal *)
+    init_sh401() ; (* 8 - S vertical *)
+    init_sh500() ; (* 9 - Z horizontal *)
+    init_sh501() ; (* 10 - Z vertical *)
+    init_sh600() ; (* 11 - J base *)
+    init_sh601() ; (* 12 - J droite *)
+    init_sh602() ; (* 13 - J  180 deg *)
+    init_sh603() ; (* 14 - J gauche *)
+    init_sh700() ; (* 15 - L base *)
+    init_sh701() ; (* 16 - L droite *)
+    init_sh702() ; (* 17 - L 180 deg*)
+    init_sh703()   (* 18 - L gauche *)
+  |]} 
 ;;
 
 (* Initialization of colors for shapes *)
@@ -444,7 +605,9 @@ let color_choice(t, background_color : t_color t_array * t_color) : t_color =
 
 
 let cur_shape_choice(shapes, mat_szx, mat_szy, color_arr, background_color : t_shape t_array * int * int * t_color t_array * t_color):t_cur_shape=
-  let sh : int = rand_int(0,shapes.len-1) and
+  let base_shapes = [|0; 2; 3; 7; 9; 11; 15|] in
+  let random_index = rand_int(0, Array.length base_shapes - 1) in
+  let sh : int = base_shapes.(random_index) and
       col : t_color = color_choice(color_arr, background_color) in
   let bas : t_point = { x = rand_int(0,mat_szx-(shapes.value.(sh)).x_len);
                         y = mat_szy-1 } in

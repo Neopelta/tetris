@@ -15,6 +15,24 @@ This project was realized within the framework of the teaching unit Complementar
 
 We were asked to work in groups and to create a software using our knowledge acquired so far. It is a video game inspired by Tetris. Tetris is a puzzle game designed by Alekseï PAJITNOV in 1984. The goal is to align different shapes in order to complete lines and thus have the best score. With 496.4 million sales worldwide, Tetris is the second best-selling license in history.
 
+## Updates (09/03/2024) ⭐
+Complete Tetris Shapes Implementation
+The game now includes all 7 standard Tetris pieces with proper rotationsau:
+
+- I-piece: Line piece (horizontal ↔ vertical)
+- O-piece: Square piece (no rotation)
+- T-piece: T-shaped piece (4 rotations) -> new
+- S-piece: S-shaped piece (2 rotations) -> new
+- Z-piece: Z-shaped piece (2 rotations) -> new
+- J-piece: J-shaped piece (4 rotations) -> new
+- L-piece: L-shaped piece (4 rotations) -> new
+
+### Fixed Issues
+- Corrected rotation mechanics for all pieces
+- Fixed shape transformations during rotations
+- Added proper rotation cycles
+- Resolved type errors in getter functions
+
 ## How to play?
 
 To launch the Tetris game, you just have to use a compiler compatible with OCAML.
