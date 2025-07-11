@@ -15,30 +15,40 @@ This project was realized within the framework of the teaching unit Complementar
 
 We were asked to work in groups and to create a software using our knowledge acquired so far. It is a video game inspired by Tetris. Tetris is a puzzle game designed by Alekseï PAJITNOV in 1984. The goal is to align different shapes in order to complete lines and thus have the best score. With 496.4 million sales worldwide, Tetris is the second best-selling license in history.
 
-## Updates (09/03/2024) ⭐
-Complete Tetris Shapes Implementation
-The game now includes all 7 standard Tetris pieces with proper rotationsau:
+## Screenshots
 
-- I-piece: Line piece (horizontal ↔ vertical)
-- O-piece: Square piece (no rotation)
-- T-piece: T-shaped piece (4 rotations) -> new
-- S-piece: S-shaped piece (2 rotations) -> new
-- Z-piece: Z-shaped piece (2 rotations) -> new
-- J-piece: J-shaped piece (4 rotations) -> new
-- L-piece: L-shaped piece (4 rotations) -> new
+## Screenshots
+
+**Gameplay** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Game Over Screen**
+
+<img src="images/gameplay.png" alt="Tetris Gameplay" width="200"> &nbsp;&nbsp; <img src="images/gameover.png" alt="Game Over Screen" width="200">
+
+## Updates
+
+### Game Over Screen Implementation (11/07/2025)
+- **When the player has lost**: Red "GAME OVER" text with yellow score display
+- **Simple exit method**: Close the graphics window to exit the game
 
 ### Fixed Issues
-- Corrected rotation mechanics for all pieces
-- Fixed shape transformations during rotations
-- Added proper rotation cycles
-- Resolved type errors in getter functions
+- Type error resolved in a getter function
+
+### Complete Tetris Shapes Implementation (09/03/2024)
+The game now includes all 7 standard Tetris pieces with proper rotations:
+
+- **I-piece**: Line piece (horizontal ↔ vertical)
+- **O-piece**: Square piece (no rotation)
+- **T-piece**: T-shaped piece (4 rotations) *new*
+- **S-piece**: S-shaped piece (2 rotations) *new*
+- **Z-piece**: Z-shaped piece (2 rotations) *new*
+- **J-piece**: J-shaped piece (4 rotations) *new*
+- **L-piece**: L-shaped piece (4 rotations) *new*
 
 ## How to play?
 
 To launch the Tetris game, you just have to use a compiler compatible with OCAML.
 
 If you don't have an OCAML compatible compiler, I suggest you to use **emacs**<sup>1</sup> (provided in the project folder) : 
-1. Open emacs via the root "star_emacs.Ink" or directly ".\emacs\start_emacs.bat"
+1. Open emacs
 2. In the "file" menu, click on "Open File...", then select the "game_tetris.ml" file
 3. Compile the program with the following manipulation : ctrl + c, ctrl + b and Enter
 
@@ -58,4 +68,4 @@ Go to the "move" function and change only the corresponding letters.
 Go to the function "init_param" and modify the attribute background_color
 
 </br>
-<sup>1</sup> Official site (emacs) : https://www.gnu.org/software/emacs/
+<sup>1</sup> Official site (emacs) : <a>https://www.gnu.org/software/emacs/<a>

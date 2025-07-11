@@ -346,7 +346,7 @@ let getshape(p : t_shape) t_point list = p.shape ;;
 let getx_len(p : t_shape) int = p.x_len ;;
 let gety_len(p : t_shape) int = p.y_len ;;
 let getrot_rgt_base(p : t_shape) t_point = p.rot_rgt_base ;;
-let getrot_rgt_shape(p : t_shape) : int = p.rot_rgt_base ;;
+let getrot_rgt_shape(p : t_shape) : int = p.rot_rgt_shape ;;
 let getrot_lft_base(p : t_shape) t_point = p.rot_lft_base ;;
 let getrot_lft_shape(p : t_shape) : int = p.rot_lft_shape ;;
 
@@ -412,7 +412,7 @@ let init_sh211() : t_shape =
   rot_lft_base = {x = 0 ;  y = 0} ; rot_lft_shape = 2} 
 ;;
 
-(* Forme T - état 0 (base) : forme en T inversé *)
+(* Forme T - ï¿½tat 0 (base) : forme en T inversï¿½ *)
 let init_sh300() : t_shape = 
   {shape = [{x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -420,7 +420,7 @@ let init_sh300() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 6} 
 ;;
 
-(* Forme T - état 1 (rotation droite) *)
+(* Forme T - ï¿½tat 1 (rotation droite) *)
 let init_sh301() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 0 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -428,7 +428,7 @@ let init_sh301() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 3} 
 ;;
 
-(* Forme T - état 2 (180°) *)
+(* Forme T - ï¿½tat 2 (180ï¿½) *)
 let init_sh302() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 1 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -436,7 +436,7 @@ let init_sh302() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 4} 
 ;;
 
-(* Forme T - état 3 (rotation gauche) *)
+(* Forme T - ï¿½tat 3 (rotation gauche) *)
 let init_sh303() : t_shape = 
   {shape = [{x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 1 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -444,7 +444,7 @@ let init_sh303() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 5} 
 ;;
 
-(* Forme S - état 0 (horizontal) *)
+(* Forme S - ï¿½tat 0 (horizontal) *)
 let init_sh400() : t_shape = 
   {shape = [{x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -452,7 +452,7 @@ let init_sh400() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 8} 
 ;;
 
-(* Forme S - état 1 (vertical) *)
+(* Forme S - ï¿½tat 1 (vertical) *)
 let init_sh401() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 1 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -460,7 +460,7 @@ let init_sh401() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 7} 
 ;;
 
-(* Forme Z - état 0 (horizontal) *)
+(* Forme Z - ï¿½tat 0 (horizontal) *)
 let init_sh500() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -468,7 +468,7 @@ let init_sh500() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 10} 
 ;;
 
-(* Forme Z - état 1 (vertical) *)
+(* Forme Z - ï¿½tat 1 (vertical) *)
 let init_sh501() : t_shape = 
   {shape = [{x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 0 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -476,7 +476,7 @@ let init_sh501() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 9} 
 ;;
 
-(* Forme J - état 0 (base) *)
+(* Forme J - ï¿½tat 0 (base) *)
 let init_sh600() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -484,7 +484,7 @@ let init_sh600() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 14} 
 ;;
 
-(* Forme J - état 1 (rotation droite) *)
+(* Forme J - ï¿½tat 1 (rotation droite) *)
 let init_sh601() : t_shape = 
   {shape = [{x = 1 ; y = 0} ; {x = 1 ; y = -1} ; {x = 0 ; y = -2} ; {x = 1 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -492,7 +492,7 @@ let init_sh601() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 11} 
 ;;
 
-(* Forme J - état 2 (180°) *)
+(* Forme J - ï¿½tat 2 (180ï¿½) *)
 let init_sh602() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 2 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -500,7 +500,7 @@ let init_sh602() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 12} 
 ;;
 
-(* Forme J - état 3 (rotation gauche) *)
+(* Forme J - ï¿½tat 3 (rotation gauche) *)
 let init_sh603() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 0 ; y = -1} ; {x = 0 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -508,7 +508,7 @@ let init_sh603() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 13} 
 ;;
 
-(* Forme L - état 0 (base) *)
+(* Forme L - ï¿½tat 0 (base) *)
 let init_sh700() : t_shape = 
   {shape = [{x = 2 ; y = 0} ; {x = 0 ; y = -1} ; {x = 1 ; y = -1} ; {x = 2 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -516,7 +516,7 @@ let init_sh700() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 18} 
 ;;
 
-(* Forme L - état 1 (rotation droite) *)
+(* Forme L - ï¿½tat 1 (rotation droite) *)
 let init_sh701() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 1 ; y = -1} ; {x = 1 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -524,7 +524,7 @@ let init_sh701() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 15} 
 ;;
 
-(* Forme L - état 2 (180°) *)
+(* Forme L - ï¿½tat 2 (180ï¿½) *)
 let init_sh702() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 0 ; y = -1}] ; 
   x_len = 3 ; y_len = 2 ; 
@@ -532,7 +532,7 @@ let init_sh702() : t_shape =
   rot_lft_base = {x = 0 ; y = 0} ; rot_lft_shape = 16} 
 ;;
 
-(* Forme L - état 3 (rotation gauche) *)
+(* Forme L - ï¿½tat 3 (rotation gauche) *)
 let init_sh703() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 0 ; y = -1} ; {x = 0 ; y = -2} ; {x = 1 ; y = -2}] ; 
   x_len = 2 ; y_len = 3 ; 
@@ -542,7 +542,7 @@ let init_sh703() : t_shape =
 
 (* Call of the forms *)
 let init_shapes() : t_shape t_array = 
-  {len = 18 ; value = [| 
+  {len = 19 ; value = [| 
     init_sh011() ; (* 0 - Barre horizontale *)
     init_sh112() ; (* 1 - Barre verticale *)
     init_sh211() ; (* 2 - Carre *)
@@ -986,6 +986,58 @@ let newstep(pl, new_t, t, dt : t_play * float ref * float * float) : bool =
     )
 ;;
 
+(* ============================================ *)
+(*              GAME OVER SCREEN              *)
+(* ============================================ *)
+
+let display_game_over_screen(score : int) : unit =
+  set_color(black);
+  fill_rect(0, 0, 425, 700);
+  
+  mywait(0.2);
+  
+  (* Try to set larger font, fallback to default if fails *)
+  (try Graphics.set_font "-*-*-*-*-*-*-24-*-*-*-*-*-*-*" with _ -> ());
+  
+  set_color(red);
+  Graphics.moveto 165 420;
+  Graphics.draw_string "GAME OVER";
+  
+  (* Reset to normal font *)
+  (try Graphics.set_font "-*-*-*-*-*-*-16-*-*-*-*-*-*-*" with _ -> ());
+  
+  set_color(yellow);
+  let score_text = "SCORE: " ^ string_of_int(score) in
+  Graphics.moveto 170 350;
+  Graphics.draw_string score_text;
+  
+  set_color(white);
+  Graphics.moveto 120 280;
+  Graphics.draw_string "Close window to exit";
+;;
+
+let display_game_over_simple(score : int) : unit =
+  set_color(black);
+  fill_rect(0, 0, 425, 700);
+  
+  mywait(0.2);
+  
+  set_color(red);
+  Graphics.moveto 120 440;
+  Graphics.draw_string "G  A  M  E";
+  Graphics.moveto 120 400;
+  Graphics.draw_string "O  V  E  R";
+  
+  set_color(yellow);
+  let score_text = "Score: " ^ string_of_int(score) in
+  Graphics.moveto 170 340;
+  Graphics.draw_string score_text;
+  
+  set_color(white);
+  Graphics.moveto 110 280;
+  Graphics.draw_string "Close window to exit";
+;;
+
 (* ------------------------ *)
 (* ------------------------ *)
 (*       Main function      *)
@@ -1009,7 +1061,24 @@ let jeuCP2() : unit =
       else () ;
       t := !new_t
     done;
-    Printf.printf "You won %i points\n"  !(pl.score);
+    
+    (* Display game over screen *)
+    (try
+      display_game_over_screen(!(pl.score))
+    with
+      _ -> display_game_over_simple(!(pl.score))
+    );
+    
+    Printf.printf "Game Over! Final score: %i points\n" !(pl.score);
+    Printf.printf "Close the graphics window to exit.\n";
+    
+    (* Keep program alive until window is closed *)
+    try
+      while true do
+        mywait(1.0);
+      done
+    with
+      _ -> Printf.printf "Thanks for playing!\n"
 ;;
 
 clear_graph();;
