@@ -90,3 +90,7 @@ Go to the function "init_param" and modify the attribute background_color
 
 </br>
 <sup>1</sup> Official site (emacs) : <a>https://www.gnu.org/software/emacs/<a>
+
+## Licence
+
+Academic project - Université de Poitiers (2022)
